@@ -5,10 +5,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="cyan" />
+  <meta name="author" content="Tania Rascia, 2019" />
+  <meta name="description" content="MVC application" />
 
   <title>Todo App</title>
 
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" sizes="192x192" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      if (navigator.serviceWorker.controller)
+        console.log('service worker already running')
+      else navigator.serviceWorker
+        .register('/mvc/sw.js')
+        .then((reg) => { console.log('SW Registered', reg.active) })
+        .catch(console.error)
+    }
+  </script>
 </head>
 
 <body>
